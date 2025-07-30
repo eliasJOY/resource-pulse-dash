@@ -52,6 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				dashboard: {
+					teal: 'hsl(var(--dashboard-teal))',
+					'teal-dark': 'hsl(var(--dashboard-teal-dark))',
+					sidebar: 'hsl(var(--dashboard-sidebar))',
+					'sidebar-text': 'hsl(var(--dashboard-sidebar-text))',
+					bg: 'hsl(var(--dashboard-bg))',
+					text: 'hsl(var(--dashboard-text))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
