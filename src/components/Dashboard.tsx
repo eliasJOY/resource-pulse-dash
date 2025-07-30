@@ -57,10 +57,10 @@ const Dashboard: React.FC = () => {
 
   // Filter resource data based on current filters
   const filteredData = mockResourceData.filter(resource => {
-    if (filters.statusCategory && resource.status !== filters.statusCategory) return false;
-    if (filters.skill && resource.skill !== filters.skill) return false;
-    if (filters.domain && resource.domain !== filters.domain) return false;
-    if (filters.location && resource.location !== filters.location) return false;
+    if (filters.statusCategory && filters.statusCategory !== 'all' && resource.status !== filters.statusCategory) return false;
+    if (filters.skill && filters.skill !== 'all' && resource.skill !== filters.skill) return false;
+    if (filters.domain && filters.domain !== 'all' && resource.domain !== filters.domain) return false;
+    if (filters.location && filters.location !== 'all' && resource.location !== filters.location) return false;
     return true;
   });
 
@@ -139,7 +139,7 @@ const Dashboard: React.FC = () => {
                 <SelectValue placeholder="All Statuses" />
               </SelectTrigger>
               <SelectContent className="bg-white">
-                <SelectItem value="">All Statuses</SelectItem>
+                <SelectItem value="all">All Statuses</SelectItem>
                 {filterOptions.statusCategories.map(status => (
                   <SelectItem key={status} value={status}>{status}</SelectItem>
                 ))}
@@ -154,7 +154,7 @@ const Dashboard: React.FC = () => {
                 <SelectValue placeholder="All Age Groups" />
               </SelectTrigger>
               <SelectContent className="bg-white">
-                <SelectItem value="">All Age Groups</SelectItem>
+                <SelectItem value="all">All Age Groups</SelectItem>
                 {filterOptions.agingGroups.map(group => (
                   <SelectItem key={group} value={group}>{group}</SelectItem>
                 ))}
@@ -310,7 +310,7 @@ const Dashboard: React.FC = () => {
                   <SelectValue placeholder="Filter by Skill" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Skills</SelectItem>
+                  <SelectItem value="all">All Skills</SelectItem>
                   {filterOptions.skills.map(skill => (
                     <SelectItem key={skill} value={skill}>{skill}</SelectItem>
                   ))}
@@ -322,7 +322,7 @@ const Dashboard: React.FC = () => {
                   <SelectValue placeholder="Filter by Domain" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Domains</SelectItem>
+                  <SelectItem value="all">All Domains</SelectItem>
                   {filterOptions.domains.map(domain => (
                     <SelectItem key={domain} value={domain}>{domain}</SelectItem>
                   ))}
@@ -334,7 +334,7 @@ const Dashboard: React.FC = () => {
                   <SelectValue placeholder="Filter by Location" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Locations</SelectItem>
+                  <SelectItem value="all">All Locations</SelectItem>
                   {filterOptions.locations.map(location => (
                     <SelectItem key={location} value={location}>{location}</SelectItem>
                   ))}
